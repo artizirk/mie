@@ -544,3 +544,16 @@ a img{
 h3 {
 	color: black;
 }
+
+.btn1 {
+	margin-right: 20px;
+}
+
+.filter-btns {
+	padding-top: 20px;
+	margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float:none;
+}
+	
