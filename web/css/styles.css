@@ -551,9 +551,13 @@ h3 {
 
 .filter-btns {
 	padding-top: 20px;
+}
+
+.center {
 	margin: 0 auto;
     display: table;
     table-layout: fixed;
     float:none;
 }
+
 	
