@@ -102,6 +102,9 @@ Search.prototype = Object.create(Page.prototype);
 
 $(document).ready(function(){
     console.log("init");
+
+    $("body").on("click", "a", function(){return false;})
+
     var page = {}
     page.Index = new Index(page);
     page.topics = new Topics(page);
