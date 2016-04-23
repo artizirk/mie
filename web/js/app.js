@@ -35,7 +35,7 @@ Page.prototype.alloff = function() {
 }
 
 function Index(app) {
-    this.page = "index.html";
+    this.page = "index.njk";
     this.app = app;
 }
 Index.prototype = Object.create(Page.prototype);
@@ -53,7 +53,7 @@ Index.prototype.load_museum = function() {
 }
 
 function Museum(app) {
-    this.page = "museum.html";
+    this.page = "museum.njk";
     this.app = app;
 }
 Museum.prototype = Object.create(Page.prototype);
