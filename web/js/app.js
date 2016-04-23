@@ -39,36 +39,64 @@ function Index(app) {
     this.app = app;
 }
 Index.prototype = Object.create(Page.prototype);
-Index.prototype.load = function() {
-    this.render({ foo:"bar"});
-};
 Index.prototype.ondisplay = function(err, res) {
-    this.on("click", "a", this.load_museum.bind(this));
+    this.on("click", "button.btn1", this.load_topics.bind(this));
+	this.on("click", "button.btn2", this.load_locations.bind(this));
+	this.on("click", "a.search", this.load_search.bind(this));
 }
-Index.prototype.load_museum = function() {
+Index.prototype.load_topics = function() {
     console.log("loading  museum");
     this.alloff();
-    this.app.museum.load();
+    this.app.topics.load();
+    return false;
+}
+Index.prototype.load_locations = function() {
+    console.log("loading  locations");
+    this.alloff();
+    this.app.locations.load();
+    return false;
+}
+Index.prototype.load_search = function() {
+	console.log("loading  search");
+	this.alloff();
+	this.app.search.load();
+	return false;
+}
+function Topics(app) {
+    this.page = "topics.njk";
+    this.app = app;
+}
+Topics.prototype = Object.create(Page.prototype);
+Topics.prototype.ondisplay = function(err, res) {
+	this.on("click", "button.btn2", this.load_locations.bind(this));
+}
+Topics.prototype.load_locations = function() {
+    console.log("loading  locations");
+    this.alloff();
+    this.app.locations.load();
+    return false;
+}
+function Locations(app) {
+    this.page = "locations.njk";
+    this.app = app;
+}
+Locations.prototype = Object.create(Page.prototype);
+Locations.prototype.ondisplay = function(err, res) {
+	this.on("click", "button.btn1", this.load_topics.bind(this));
+}
+Locations.prototype.load_topics = function() {
+    console.log("loading  topics");
+    this.alloff();
+    this.app.topics.load();
     return false;
 }
 
-function Museum(app) {
-    this.page = "museum.njk";
+function Search(app) {
+    this.page = "search.njk";
     this.app = app;
 }
-Museum.prototype = Object.create(Page.prototype);
-Museum.prototype.load = function(){
-    this.render({name: "A Museum"});
-}
-Museum.prototype.ondisplay = function(err, res) {
-    this.on("click", "a", this.load_index.bind(this));
-}
-Museum.prototype.load_index = function(){
-    console.log("load index")
-    this.alloff()
-    this.app.index.load();
-    return false;
-}
+Search.prototype = Object.create(Page.prototype);
+
 
 
 
@@ -78,9 +106,11 @@ $(document).ready(function(){
     $("body").on("click", "a", function(){return false;})
 
     var page = {}
-    page.index = new Index(page);
-    page.museum = new Museum(page);
-    page.index.load();
+    page.Index = new Index(page);
+    page.topics = new Topics(page);
+	page.locations = new Locations(page);
+	page.search = new Search(page);
+    page.Index.load();
 
 });
 
