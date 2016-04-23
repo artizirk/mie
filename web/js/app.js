@@ -74,6 +74,9 @@ Museum.prototype.load_index = function(){
 
 $(document).ready(function(){
     console.log("init");
+
+    $("body").on("click", "a", function(){return false;})
+
     var page = {}
     page.index = new Index(page);
     page.museum = new Museum(page);
