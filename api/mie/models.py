@@ -32,10 +32,11 @@ class Museum(Document):
     name = StringField(required=True)
     aadress = StringField()
     location = PointField()
-    open_times = EmbeddedDocumentListField(OpenTime)
+    open_times = StringField()
+    #open_times = EmbeddedDocumentListField(OpenTime)
     home_page = URLField()
     description = StringField()
-    phone = StringField()
+    phone = ListField(StringField())
     email = EmailField()
 
     categories = ListField(StringField())
