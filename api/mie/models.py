@@ -30,7 +30,7 @@ class Museum(Document):
     """A Museum"""
 
     name = StringField(required=True)
-    aadress = StringField()
+    address = StringField()
     location = PointField()
     open_times = StringField()
     #open_times = EmbeddedDocumentListField(OpenTime)

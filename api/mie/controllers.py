@@ -17,7 +17,8 @@ class MuseumResource():
             
 
     def on_post(self, req, resp, museum=None):
-        museum = Museum.from_json(req.stream.read().decode())
+        json = req.stream.read().decode()
+        museum = Museum.from_json(json)
         museum.save()
         resp.status = HTTP_201
 
