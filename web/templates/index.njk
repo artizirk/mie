@@ -1,4 +1,50 @@
-Hello {{ foo }}
+<section class="map">
+{% block map %}
 
+<div class="filter-btns">
+	<button class="mdl-button mdl-js-button mdl-button--raised btn1">
+		Teemad
+	</button>
+	<button class="mdl-button mdl-js-button mdl-button--raised btn2">
+		Asukohad
+	</button>
+</div>
+{% endblock %}
+</section>
 
-<a href="/museum">museum</a>
+<section class="list">
+{% block list %}
+<ul class="museum-list mdl-list">
+	<li class="mdl-list__item mdl-list__item--three-line">
+		<span class="mdl-list__item-primary-content">
+		<span>Muuseumi Nimi</span>
+			<span class="mdl-list__item-text-body">
+				Avatud xx.xx - xx.xx </br>
+				Aadress Mingitänav 123</br>
+				Pilet x€
+			</span>
+		</span>
+	</li>
+	<li class="mdl-list__item mdl-list__item--three-line">
+		<span class="mdl-list__item-primary-content">
+		<span>Muuseumi Nimi</span>
+			<span class="mdl-list__item-text-body">
+				Avatud xx.xx - xx.xx </br>
+				Aadress Mingitänav 123 </br>
+				Pilet x€
+			</span>
+		</span>
+	</li>
+	<li class="mdl-list__item mdl-list__item--three-line">
+		<span class="mdl-list__item-primary-content">
+		<span>Muuseumi Nimi</span>
+			<span class="mdl-list__item-text-body">
+				Avatud xx.xx - xx.xx </br>
+				Aadress Mingitänav 123 </br>
+				Pilet x€
+			</span>
+		</span>
+	</li>
+</ul>
+{% endblock %}
+</section>

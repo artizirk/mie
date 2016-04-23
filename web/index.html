@@ -16,18 +16,19 @@
   limitations under the License
 -->
 
-<html lang="en">
+<html lang="et">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Android</title>
+    <title>Muuseumid Eestis</title>
 
     <!-- Page styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.min.css">
+	<link rel="stylesheet" href="https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/blue_grey-pink/material.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
     #view-source {
@@ -41,70 +42,52 @@
     }
     </style>
   </head>
-  <body>
+  <body onload="GetMap();">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
       <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
         <div class="mdl-layout__header-row">
-          <h3 class="logo-font mdl-layout-title"> Museums in Estonia </h3>
-          <!-- Add spacer, to align navigation to the right in desktop -->
-          <div class="android-header-spacer mdl-layout-spacer"></div>
+          <h3 class="logo-font mdl-layout-title"> Muuseumid Eestis </h3>
         </div>
       </div>
 
       <div class="android-drawer mdl-layout__drawer">
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Otsing</a>
-          <a class="mdl-navigation__link" href="">Lähedal</a>
-          <a class="mdl-navigation__link" href="">Avamisajad</a>
-          <a class="mdl-navigation__link" href="">Nimekiri</a>
-          <a class="mdl-navigation__link" href="">Seaded</a>
+          <a class="mdl-navigation__link search" href="/">Otsing</a>
+          <a class="mdl-navigation__link nearBy" href="">Lähedal</a>
+          <a class="mdl-navigation__link openingTimes" href="">Avamisajad</a>
+          <a class="mdl-navigation__link museumList" href="">Nimekiri</a>
+          <a class="mdl-navigation__link settings" href="">Seaded</a>
         </nav>
       </div>
 
-      <div class="android-content mdl-layout__content">
-        <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCEl8wKcTK3mRur6S3ECARxyZVVeFc4Ybs&q=Estonia" allowfullscreen></iframe>
+      <div class="android-content mdl-layout__content"> <!--id="content"-->
 		
-		<div class="filter-btns center">
-			<button class="mdl-button mdl-js-button mdl-button--raised btn1">
-			  Teemad
-			</button>
-			<button class="mdl-button mdl-js-button mdl-button--raised">
-			  Asukohad
-			</button>
-		</div>
+		<div id='myMap'></div>
 		
-		<ul class="museum-list mdl-list center">
-		  <li class="mdl-list__item mdl-list__item--three-line">
-			<span class="mdl-list__item-primary-content">
-			  <span>Muuseumi Nimi</span>
-			  <span class="mdl-list__item-text-body">
-				Avatud xx.xx - xx.xx </br>
-				Aadress Mingitänav 123</br>
-				Pilet x€
-			  </span>
-			</span>
-		  </li>
-		  <li class="mdl-list__item mdl-list__item--three-line">
-			<span class="mdl-list__item-primary-content">
-			  <span>Muuseumi Nimi</span>
-			  <span class="mdl-list__item-text-body">
-				Avatud xx.xx - xx.xx </br>
-				Aadress Mingitänav 123 </br>
-				Pilet x€
-			  </span>
-			</span>
-		  </li>
-		  <li class="mdl-list__item mdl-list__item--three-line">
-			<span class="mdl-list__item-primary-content">
-			  <span>Muuseumi Nimi</span>
-			  <span class="mdl-list__item-text-body">
-				Avatud xx.xx - xx.xx </br>
-				Aadress Mingitänav 123 </br>
-				Pilet x€
-			  </span>
-			</span>
-		  </li>
+		<ul class="museum-list mdl-list">
+			<li class="mdl-list__item mdl-list__item--three-linve">
+				<div class="mdl-panel mdl-panel--shadow">
+					<table>
+						<tr>
+							<td>
+								<span class="mdl-list__item-primary-content">
+									<img src="http://www.hot.ee/k/kolkjamuuseum/pildid/pilt_3.png" width="150px" />
+								</span>
+							</td>
+							<td>
+								<span class="mdl-list__item-text-body">
+									<strong> Muuseumi Nimi </strong> </br>
+									Avatud xx.xx - xx.xx </br>
+									<em> Aadress Mingitänav 123 </em></br>
+									Pilet x€
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</li>
+			
 		</ul>
 		
         <footer class="android-footer mdl-mega-footer">
@@ -112,6 +95,11 @@
         </footer>
       </div>
     </div>
+	<script defer src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+	<script defer src="js/nunjucks.min.js"></script>
+	<script defer src="js/app.js"></script>
     <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+	<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+	<script type="text/javascript" src="js/map.js"></script>
   </body>
 </html>

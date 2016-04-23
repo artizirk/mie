@@ -545,6 +545,14 @@ h3 {
 	color: black;
 }
 
+.mdl-list__item {
+	margin-bottom: 10px;
+}
+
+.text_align {
+	padding-bottom: 3%;
+}
+
 .btn1 {
 	margin-right: 20px;
 }
@@ -553,11 +561,17 @@ h3 {
 	padding-top: 20px;
 }
 
-.center {
-	margin: 0 auto;
-    display: table;
-    table-layout: fixed;
-    float:none;
+.museum-list {
+	display: inline;
+	position: absolute;
+}
+
+ #myMap {
+	display: inline-block;
+	float: left;
+	position: relative;
+	width: 70%;
+	height: 550px;
 }
 
 	
