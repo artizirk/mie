@@ -29,7 +29,7 @@ mongoengine.connect('mie', connect=False)
 app = application = falcon.API(request_type=JsonRequest, response_type=JsonResponse)
 app.add_error_handler(ValidationError, error_handler)
 app.add_error_handler(FieldDoesNotExist, error_handler)
-app.add_error_handler(json.JSONDecodeError, error_handler)
+app.add_error_handler(ValueError, error_handler)
 app.add_route("/", AboutResource())
 
 museum = MuseumResource()
