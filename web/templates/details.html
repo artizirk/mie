@@ -1,4 +1,4 @@
-<div class="landing" style="background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('/img/Pictures/Lennundusmuuseum 2.jpg') center / cover;margin-top:0; padding: 20vh 0;">
+<div class="landing" style="background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('/img/Pictures/Eesti vabaõhumuuseum 5.jpg') center / cover;margin-top:0; padding: 20vh 0;">
   <h2 class="logo-font" style="color:white;"> {{ museum.name }} </h2>
 </div>
 
@@ -11,6 +11,8 @@
     <i class="material-icons">access_time</i> {{ museum.open_times }} <br>
     <i class="material-icons">contact_phone</i> {{ museum.phone }}<br>
     <i class="material-icons">email</i> {{ museum.email }}<br>
+    <i class="material-icons">pin_drop</i> {{ museum.address }}<br>
+    <i class="material-icons">link</i> <a href="{{ museum.home_page }}">{{ museum.home_page }}</a> <br>
     <i class="material-icons">attach_money</i> 2€ - 10€<br>
   </p>
 </div>
