@@ -45,8 +45,11 @@ function GetMap(center, zoom) {
 
 function AddData(home) {
 
-    $.getJSON("/api/v1/museum?lat="+home.latitude+"&lon="+home.longitude+"&ran=40", function(data){
+    $.getJSON("/api/v1/museum?lat="+home.latitude+"&lon="+home.longitude+"&ran=40&q=loodus", function(data){
         $.each(data, function(index, value) {
+            if (!value.location) {
+                return;
+            }
             var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(value.location.coordinates[0], value.location.coordinates[1]), 
                                                 {icon: 'muse-pin.png', width: 20, height: 36, draggable: false});
             pin.Title = value.name;

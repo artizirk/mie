@@ -97,8 +97,22 @@ function Search(app) {
 }
 Search.prototype = Object.create(Page.prototype);
 
-
-
+function MyPostition(app) {
+    this.app = app;
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.gotPostition.bind(this), this.errPostition.bind(this));
+    }
+}
+MyPostition.prototype.gotPostition = function(position) {
+    console.log(position)
+    this.app.mainMap.setView({
+        center: new Microsoft.Maps.Location(position.coords.latitude, position.coords.longitude),
+        zoom: 14,
+    });
+};
+MyPostition.prototype.errPostition = function(err) {
+    console.error(err);
+};
 
 $(document).ready(function(){
     console.log("init");
@@ -106,6 +120,12 @@ $(document).ready(function(){
     $("body").on("click", "a", function(){return false;})
 
     var page = {}
+    /*page.mainMap = new Microsoft.Maps.Map(document.getElementById("main-map"), 
+        { credentials: "Ajv_iCOiMv4TeOydBWwpiuvelYzHXfwFYgG4KhiNDTr6VXPkf5BOcGFTWtSrxwwG", 
+          showDashboard: false,
+          center: new Microsoft.Maps.Location(58.7, 25.0), 
+          zoom: 8});
+    page.MyPostition = new MyPostition(page);*/
     page.Index = new Index(page);
     page.topics = new Topics(page);
 	page.locations = new Locations(page);

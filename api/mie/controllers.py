@@ -19,9 +19,18 @@ class MuseumResource():
         start = req.get_param_as_int("start")
         end = req.get_param_as_int("end")
     
-        lat = float(req.get_param("lat"))
-        lon = float(req.get_param("lon"))
-        ran = float(req.get_param("ran"))
+        try:
+            lat = float(req.get_param("lat"))
+        except TypeError:
+            lat = None
+        try:
+            lon = float(req.get_param("lon"))
+        except TypeError:
+            lon = None
+        try:
+            ran = float(req.get_param("ran"))
+        except TypeError:
+            ran = None
 
         f = {}
         if q:

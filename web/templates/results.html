@@ -1,0 +1,31 @@
+{% for museum in results %}
+  <li class="mdl-list__item mdl-list__item--three-line museum-element" data-id="{{ museum._id }}" style="cursor:pointer;">
+    <span class="mdl-list__item-primary-content">
+      <img src="muse-pin.png" style="padding:0 24px;margin-bottom: 0px; float:left;">
+      <span>{{ museum.name }}</span>
+      <span class="mdl-list__item-text-body">
+        <i class="material-icons">contact_phone</i> {{ museum.phone }}
+        <i class="material-icons">attach_money</i> 2€ - 10€
+      </span>
+    </span>
+    <span class="mdl-list__item-secondary-content">
+      <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+    </span>
+  </li>
+
+{% else %}
+
+  <li class="mdl-list__item mdl-list__item--three-line">
+    <span class="mdl-list__item-primary-content">
+      <img src="muse-pin.png">
+      <span>No museums found</span>
+      <span class="mdl-list__item-text-body">
+
+      </span>
+    </span>
+    <span class="mdl-list__item-secondary-content">
+      <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+    </span>
+  </li>
+
+{% endfor %}
