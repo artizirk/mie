@@ -19,7 +19,7 @@ app = {
                             { credentials: "Ajv_iCOiMv4TeOydBWwpiuvelYzHXfwFYgG4KhiNDTr6VXPkf5BOcGFTWtSrxwwG", 
                               showDashboard: false,
                               center: new Microsoft.Maps.Location(58.7, 25.0), 
-                              zoom: 8});
+                              zoom: 7});
 
         this.dataLayer = new Microsoft.Maps.EntityCollection();
         this.mainMap.entities.push(this.dataLayer);
