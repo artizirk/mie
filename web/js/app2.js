@@ -125,7 +125,7 @@ app = {
 
             app.mainMap.setView({
                 center: new Microsoft.Maps.Location(58.7001034, 24.9793223),// new Microsoft.Maps.Location(latitude, longitude),
-                zoom: 8,
+                zoom: 7,
             });
 
         }.bind(this));
